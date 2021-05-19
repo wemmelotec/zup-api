@@ -2,6 +2,7 @@ package br.com.zup.api.model;
 
 import java.time.LocalDate;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,12 +22,14 @@ public class Usuario {
 	private String nome;
 	
 	@NotNull
+	@Column(name = "e_mail")
 	private String email;
 	
 	@NotNull
 	private String cpf;
 	
 	@NotNull
+	@Column(name = "data_nascimento")
 	private LocalDate dataNascimento;
 	
 	

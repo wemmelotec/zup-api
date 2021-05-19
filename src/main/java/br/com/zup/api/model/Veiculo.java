@@ -1,10 +1,6 @@
 package br.com.zup.api.model;
 
 
-import com.fasterxml.jackson.annotation.JsonFilter;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonIgnoreType;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Veiculo {
@@ -26,8 +22,7 @@ public class Veiculo {
 	private int tipoVeiculo;
 	@JsonProperty("SiglaCombustivel")
 	private String siglaCombustivel;
-	private Usuario usuario;
-	
+			
 	public String getValor() {
 		return valor;
 	}
