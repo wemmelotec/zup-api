@@ -1,28 +1,48 @@
 package br.com.zup.api.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
+@Entity
+@Table(name="veiculo")
 public class Veiculo {
-	@JsonProperty("Valor")
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Long id;
+	@Column(name = "dia_de_rodizio")
+	private String diaDeRodizio;
+	@Column(name = "rodizio_ativo")
+	private boolean rodizioAtivo;
 	private String valor;
-	@JsonProperty("Marca")
 	private String marca;
-	@JsonProperty("Modelo")
 	private String modelo;
-	@JsonProperty("AnoModelo")
-	private int anoModelo;
-	@JsonProperty("Combustivel")
-	private String combustivel;
-	@JsonProperty("CodigoFipe")
-	private String codigoFipe;
-	@JsonProperty("MesReferencia")
-	private String mesReferencia;
-	@JsonProperty("TipoVeiculo")
-	private int tipoVeiculo;
-	@JsonProperty("SiglaCombustivel")
-	private String siglaCombustivel;
-			
+	@Column(name = "ano_modelo")
+	private Long anoMode;
+	
+	
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public String getDiaDeRodizio() {
+		return diaDeRodizio;
+	}
+	public void setDiaDeRodizio(String diaDeRodizio) {
+		this.diaDeRodizio = diaDeRodizio;
+	}
+	public boolean isRodizioAtivo() {
+		return rodizioAtivo;
+	}
+	public void setRodizioAtivo(boolean rodizioAtivo) {
+		this.rodizioAtivo = rodizioAtivo;
+	}
 	public String getValor() {
 		return valor;
 	}
@@ -41,41 +61,34 @@ public class Veiculo {
 	public void setModelo(String modelo) {
 		this.modelo = modelo;
 	}
-	public int getAnoModelo() {
-		return anoModelo;
+	public Long getAnoMode() {
+		return anoMode;
 	}
-	public void setAnoModelo(int anoModelo) {
-		this.anoModelo = anoModelo;
+	public void setAnoMode(Long anoMode) {
+		this.anoMode = anoMode;
 	}
-	public String getCombustivel() {
-		return combustivel;
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
 	}
-	public void setCombustivel(String combustivel) {
-		this.combustivel = combustivel;
-	}
-	public String getCodigoFipe() {
-		return codigoFipe;
-	}
-	public void setCodigoFipe(String codigoFipe) {
-		this.codigoFipe = codigoFipe;
-	}
-	public String getMesReferencia() {
-		return mesReferencia;
-	}
-	public void setMesReferencia(String mesReferencia) {
-		this.mesReferencia = mesReferencia;
-	}
-	public int getTipoVeiculo() {
-		return tipoVeiculo;
-	}
-	public void setTipoVeiculo(int tipoVeiculo) {
-		this.tipoVeiculo = tipoVeiculo;
-	}
-	public String getSiglaCombustivel() {
-		return siglaCombustivel;
-	}
-	public void setSiglaCombustivel(String siglaCombustivel) {
-		this.siglaCombustivel = siglaCombustivel;
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Veiculo other = (Veiculo) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		return true;
 	}
 	
 	

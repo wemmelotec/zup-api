@@ -1,14 +1,12 @@
 package br.com.zup.api.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.reactive.function.client.WebClient;
-
 import br.com.zup.api.model.Veiculo;
-import reactor.core.publisher.Flux;
+import br.com.zup.api.model.VeiculoJson;
+import br.com.zup.api.repository.VeiculoRepository;
 import reactor.core.publisher.Mono;
 
 @Service
@@ -16,29 +14,22 @@ public class VeiculoService {
 	
 	@Autowired
 	private WebClient webClient;
+	@Autowired
+	private VeiculoRepository veiculoRepository;
 	
-	public Mono<Veiculo> obterVeiculo(@PathVariable String codigo) {
-		
-		Mono<Veiculo> monoVeiculo = this.webClient
+	public Mono<VeiculoJson> obterVeiculo(@PathVariable String codigo) {
+		Mono<VeiculoJson> monoVeiculo = this.webClient
 		.get()
 		.uri("/{codigo}",codigo)
 		.retrieve()
-		.bodyToMono(Veiculo.class);
-				
-			
+		.bodyToMono(VeiculoJson.class);
 		return monoVeiculo;
 	
-	/*
-	public Flux<Veiculo> obterVeiculo() {
-		
-		Flux<Veiculo> fluxVeiFlux = this.webClient
-		.get()
-		.uri("/anos")
-		.retrieve()
-		.bodyToFlux(Veiculo.class);
-				
-			
-		return fluxVeiFlux;
-	}*/
 	}
+
+	public void salvar(Veiculo veiculo) {
+		
+		veiculoRepository.save(veiculo);
+	}
+
 }

@@ -49,6 +49,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-webflux</artifactId>
 		</dependency>
+		
 		<!-- implementar a valição antes de chegar ao banco -->
 		<dependency> 
 		    <groupId>org.springframework.boot</groupId> 
@@ -59,8 +60,7 @@
 			<groupId>org.flywaydb</groupId>
 			<artifactId>flyway-core</artifactId>
 		</dependency>
-		
-		
+			
 	</dependencies>
 
 	<build>
