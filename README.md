@@ -26,3 +26,12 @@
 * spring-boot-starter-validation
 * spring-boot-starter-webflux
 * flyway-core
+
+## EndPoint's do projeto
+* Cadastrar usuários: Método Post para http://localhost:8080/usuarios (após o cadastro a API retorna o id do usuário cadastrado)
+* Listar usuários por id: Método Get para http://localhost:8080/usuarios/id
+* Consumo da API da FIPE: Método Get para http://localhost:8080/carros/1993-1
+* Salvar veículos: Método Post para http://localhost:8080/carros.
+
+
+
